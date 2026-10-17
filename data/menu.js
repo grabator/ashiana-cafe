@@ -32,6 +32,7 @@ window.ASHIANA_MENU = [
   {
     id: 'desserts', name: 'Desserts & Waffles', note: 'Something sweet to finish.',
     items: [
+      { name: 'Red Velvet Cake', desc: 'Layers of red velvet sponge and cream cheese frosting.', price: null, tags: ['popular'], PRIVREMENO: true },
       { name: 'Oreo Waffle', desc: 'Warm waffle with Oreo crumble and chocolate sauce.', price: null, tags: ['popular'], PRIVREMENO: true }
     ]
   },
@@ -67,8 +68,9 @@ window.ASHIANA_MENU = [
 ];
 
 // okusi nargile za dio "Shisha", kao vinska karta: naziv i kratka nota okusa.
-// Frozen Apple je potvrđen kao omiljeni kod gostiju; ostali okusi i opisi su PRIVREMENO dok vlasnik ne pošalje listu.
+// Prince of Persia je "New summer favourite" sa njihove objave, Frozen Apple je potvrđen kao omiljeni kod gostiju; ostali okusi i opisi su PRIVREMENO dok vlasnik ne pošalje listu.
 window.ASHIANA_SHISHA = [
+  { name: 'Prince of Persia', note: '“This flavour really hits the spot”', fav: true, tag: 'New summer favourite' },
   { name: 'Frozen Apple', note: 'Crisp green apple, icy finish', fav: true },
   { name: 'Double Apple', note: 'Sweet red apple with a hint of aniseed', PRIVREMENO: true },
   { name: 'Grape & Mint', note: 'Dark grape, cool mint', PRIVREMENO: true },

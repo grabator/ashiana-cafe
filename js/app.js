@@ -85,7 +85,7 @@
   noneEl.addEventListener('click', (e) => { if (e.target.closest('[data-clear]')) { input.value = ''; filter(); input.focus(); } });
 
   /* ---------- okusi nargile ---------- */
-  $('[data-flavours]').innerHTML = FLAV.map((f) => '<li class="flav"><div><b>' + esc(f.name) + '</b><span>' + esc(f.note) + '</span></div>' + (f.fav ? '<em>Guest favourite</em>' : '') + '</li>').join('');
+  $('[data-flavours]').innerHTML = FLAV.map((f) => '<li class="flav"><div><b>' + esc(f.name) + '</b><span>' + esc(f.note) + '</span></div>' + (f.fav ? '<em>' + esc(f.tag || 'Guest favourite') + '</em>' : '') + '</li>').join('');
 
   /* ---------- recenzija i pitanja (samo pravi podaci) ---------- */
   const qEl = $('[data-quote]');
@@ -128,7 +128,7 @@
   /* ---------- uvećanje fotografija ---------- */
   const lb = $('[data-lb]'), lbImg = $('[data-lb-img]'), lbCap = $('[data-lb-cap]');
   const shots = $$('[data-gallery] .m'); let idx = 0, lastFocus = null;
-  const show = (i) => { idx = (i + shots.length) % shots.length; const im = $('img', shots[idx]); lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt; lbImg.width = im.naturalWidth || im.width; lbCap.textContent = $('figcaption', shots[idx]).textContent; };
+  const show = (i) => { idx = (i + shots.length) % shots.length; const im = $('img', shots[idx]); lbImg.src = im.dataset.full || im.currentSrc || im.src; lbImg.alt = im.alt; lbImg.removeAttribute('width'); lbCap.textContent = $('figcaption', shots[idx]).textContent; };
   const open = (i) => { lastFocus = document.activeElement; show(i); lb.hidden = false; lock(true); $('[data-lb-close]').focus(); };
   const close = () => { lb.hidden = true; lock(false); if (lastFocus) lastFocus.focus(); };
   shots.forEach((m, i) => $('button', m).addEventListener('click', () => open(i)));

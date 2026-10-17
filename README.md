@@ -18,11 +18,13 @@ Provjereno (upisano):
 - [x] cijene sa Uber Eatsa: Dynamite Shrimp £7.95, Nachos £7.95, Masala Fries £5.45, Grilled Halloumi £4.95
 - [x] jela i pića koja se pominju na javnim stranicama (bez cijena): steak i pomfrit, grilana piletina, chicken burger, Oreo waffle, Desi chai, cappuccino, arapski čaj od mente, mojito bez alkohola; nargila Frozen Apple (gosti je hvale)
 - [x] recenzija sa Tripadvisora: "A great vibe, decor is amazing."
+- [x] sa njihovih objava: loyalty kartica je digitalna (rewards.cafeashiana.com), novi okus nargile Prince of Persia ("New summer favourite", "This flavour really hits the spot"), red velvet torta, frozen i obični mocktaili, terasa
+- [x] fotografije u punoj rezoluciji sa njihovih objava: gošća pod cvjetnim plafonom, majstor za nargilu, nargila na terasi, žar, mocktaili, red velvet torta, loyalty i Prince of Persia poster
 
 ### Od vlasnika treba
 - [ ] **puni meni sa cijenama** (sa Instagram highlighta "Food Menu" ili od vlasnika); sad većina stavki ima "ask us" umjesto cijene, a opisi jela su okvirni
 - [ ] **okusi nargile i cijene** (classic i premium); sad je potvrđen samo Frozen Apple, ostali okusi i opisi okusa su okvirni
-- [ ] **fotografije** u dobroj rezoluciji (fasada noću, sala sa sijalicama, neon, plafon sa cvjetovima, rooftop, ekipa, hrana) i **dozvola** da se koriste; sadašnje su isječci sa javnih stranica (Tripadvisor, Facebook, Instagram), samo za demo
+- [ ] **dozvola za fotografije** (nove su sa njihovih objava, a starije sa javnih stranica su manje rezolucije: fasada noću, puna sala, ekipa za šankom); ako imaju fotografije sale i rooftopa u punoj veličini, zamijeniti njih
 - [ ] gdje se puši nargila (terasa, rooftop) i radno vrijeme rooftopa, sezona
 - [ ] tačan link Facebook stranice (sad vodi na pretragu "Cafe Ashiana Derby", u `data/site.js`)
 - [ ] email, ako žele da ga prikažemo
@@ -50,15 +52,19 @@ v2 je redizajn sa fokusom na dizajn, ne na efekte: tamno, toplo i mirno, kao lok
   - neon rukopis (Sacramento) samo jednom, u dijelu Shisha.
 - **Zlatna samo** za logo, glavno dugme, cijene i tanke linije. Uz crnu ide topla tamna (`#14110d`) i plavi somot u dijelu Shisha.
 - **Prvi ekran:** naslov lijevo, fotografija sale desno (nikad šira od svoje rezolucije), traka sa tri podatka: današnji status (živi, London), adresa, halal.
-- **Uvod:** tekst o lokalu, fotografija plafona sa cvjetovima i veliki citat gosta sa Tripadvisora.
+- **Prvi ekran** ima fotografiju gošće pod cvjetnim plafonom sa nargilom (njihova fotografija u punoj rezoluciji).
+- **Uvod:** tekst o lokalu, fotografija sale sa krošnjom i veliki citat gosta sa Tripadvisora.
+- **Iznad menija** tri fotografije: red velvet torta, frozen mocktail, plavi i bobičasti mocktail.
 - **Meni kao u restoranu:**
   - sve kategorije odjednom, sa indeksom sa strane (na mobitelu traka koja se lijepi);
   - pretraga na ikonicu;
   - oznake ★ Popular, V Vegetarian, S Spicy.
   - Stavke bez potvrđene cijene nemaju cijenu; na vrhu piše "Prices on request for items without a price".
-- **Shisha:** lista okusa kao vinska karta (Frozen Apple istaknut), 18+ i upozorenje o nikotinu, statičan neon.
+- **Shisha:** traka sa žarom, poster Prince of Persia, lista okusa kao vinska karta (Prince of Persia i Frozen Apple istaknuti), 18+ i upozorenje o nikotinu, statičan neon.
+- **Rewards:** njihova digitalna loyalty kartica sa dugmetom na rewards.cafeashiana.com.
 - **The lounge:** naslov lijevo, mreža fotografija desno (3:2 i 1:1, na mobitelu sve 1:1), uvećanje na klik (strelice, prevlačenje, Esc).
-- **The crew** i **Visit:**
+- **The crew:** velika fotografija majstora za nargilu u kačketu i prsluku.
+- **Visit:**
   - fotografija fasade (ostaje vidljiva pri skrolu) vodi na Google Maps;
   - pored nje adresa, radno vrijeme sa istaknutim današnjim danom i kontakt.
 - **Pitanja (Good to know):** spremno u `data/site.js` (`faq`), prikazuje se tek kad se upišu odgovori koje je potvrdio vlasnik.
