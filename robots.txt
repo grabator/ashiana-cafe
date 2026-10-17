@@ -1,0 +1,5 @@
+# Demo: stranica ima "noindex" u index.html. Prije objave vidi README, "Prije objave".
+User-agent: *
+Allow: /
+
+Sitemap: https://ashiana-cafe.grabafaceit.workers.dev/sitemap.xml
