@@ -70,7 +70,7 @@ v2 je redizajn sa fokusom na dizajn, ne na efekte: tamno, toplo i mirno, kao lok
   - fotografija fasade (ostaje vidljiva pri skrolu) vodi na Google Maps;
   - pored nje adresa, radno vrijeme sa istaknutim današnjim danom i kontakt.
 - **Pitanja (Good to know):** 8 pitanja na klik (halal, radno vrijeme, adresa, dostava, nargila 18+, vegetarijanska jela, loyalty kartica, novi okus), u `data/site.js` (`faq`), samo iz provjerenih izvora.
-- **Mobitel:** meni preko cijelog ekrana (veliki serif linkovi, adresa, radno vrijeme, poziv) i tanka donja traka Call · Directions · Menu · Order.
+- **Mobitel:** meni preko cijelog ekrana (brojevi, opisi, status, poziv i narudžba), donja traka Call · Directions · Menu · Order. Meni hrane na mobitelu ide kao kartice: vidi se jedna kategorija, a dugme "Next" vodi na sljedeću; pretraga traži kroz sve. Stranica je na mobitelu oko 11.200 px (ranije 16.900): manji razmaci, Crew i Rewards kompaktniji, poster Prince of Persia se ne ponavlja.
 - **Bez dekorativnih animacija:** nema sijalica, dima, crtanja loga, treptanja neona ni pojavljivanja pri skrolu. Ostali su samo prelazi boje na hover i zatamnjenje pri otvaranju menija i fotografije.
 
 Mapa: OpenStreetMap slika nije mogla da se iscrta u ovom okruženju, pa je umjesto mape fotografija fasade sa dugmetom za Google Maps (prompt to dozvoljava). Ako se kasnije doda statična mapa, ide u `assets/img/` sa natpisom "© OpenStreetMap contributors".

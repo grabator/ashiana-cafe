@@ -55,7 +55,8 @@
       + (it.price != null ? '<span class="price">£' + it.price.toFixed(2) + '</span>' : '') + '</div>'
       + (it.desc ? '<p>' + esc(it.desc) + '</p>' : '') + '</li>';
   };
-  bodyEl.innerHTML = MENU.map((c) => '<section class="cat" id="m-' + c.id + '" aria-labelledby="mh-' + c.id + '"><div class="cat-h"><h3 id="mh-' + c.id + '">' + esc(c.name) + '</h3><p>' + esc(c.note || '') + '</p></div><ul class="items">' + c.items.map(itemHTML).join('') + '</ul></section>').join('');
+  bodyEl.innerHTML = MENU.map((c, i) => '<section class="cat" id="m-' + c.id + '" aria-labelledby="mh-' + c.id + '"><div class="cat-h"><h3 id="mh-' + c.id + '">' + esc(c.name) + '</h3><p>' + esc(c.note || '') + '</p></div><ul class="items">' + c.items.map(itemHTML).join('') + '</ul>'
+    + (MENU[i + 1] ? '<a class="cat-next" href="#m-' + MENU[i + 1].id + '" data-cat="' + MENU[i + 1].id + '">Next: ' + esc(MENU[i + 1].name) + ' <span aria-hidden="true">→</span></a>' : '') + '</section>').join('');
   indexEl.innerHTML = MENU.map((c) => '<a href="#m-' + c.id + '" data-cat="' + c.id + '">' + esc(c.name) + '</a>').join('');
   const idxLinks = $$('a', indexEl);
   const setActive = (id) => idxLinks.forEach((a) => {
@@ -70,8 +71,14 @@
   };
   // aktivna kategorija: zadnja čiji je naslov prošao ispod onoga što se lijepi na vrhu
   let jumping = 0;
+  // mobitel: kategorije su kartice, vidi se jedna po jedna (kraća stranica); pretraga pokazuje sve pogotke
+  const tabsMq = matchMedia('(max-width: 900px)');
+  let shown = MENU[0].id;
+  const showCat = (id) => { shown = id; $$('.cat', bodyEl).forEach((c) => c.classList.toggle('on', c.id === 'm-' + id)); };
+  const syncMode = () => bodyEl.classList.toggle('tabs', tabsMq.matches);
+  tabsMq.addEventListener('change', syncMode); syncMode(); showCat(shown);
   const syncActive = () => {
-    if (jumping) return;
+    if (jumping || (tabsMq.matches && !bodyEl.classList.contains('searching'))) return;
     const cats = $$('.cat:not(.is-hidden)', bodyEl), line = topOffset() + 8;
     let cur = cats[0];
     for (const c of cats) if (c.getBoundingClientRect().top <= line) cur = c;
@@ -80,15 +87,19 @@
   let sraf = 0;
   addEventListener('scroll', () => { if (!sraf) sraf = requestAnimationFrame(() => { sraf = 0; syncActive(); }); }, { passive: true });
   // klik na kategoriju: skrol tačno na njen naslov, odmah označena
-  indexEl.addEventListener('click', (e) => {
-    const a = e.target.closest('a'); if (!a) return;
+  const goCat = (e) => {
+    const a = e.target.closest('a[data-cat]'); if (!a) return;
     e.preventDefault();
+    if (tabsMq.matches && input.value.trim()) { input.value = ''; filter(); }
+    if (tabsMq.matches) showCat(a.dataset.cat);
     const cat = $('#m-' + a.dataset.cat), y = cat.getBoundingClientRect().top + scrollY - topOffset();
     setActive(a.dataset.cat);
     clearTimeout(jumping); jumping = setTimeout(() => { jumping = 0; }, 900);
     scrollTo({ top: Math.max(0, y), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     try { history.replaceState(null, '', '#m-' + a.dataset.cat); } catch {}
-  });
+  };
+  indexEl.addEventListener('click', goCat);
+  bodyEl.addEventListener('click', (e) => { if (e.target.closest('.cat-next')) goCat(e); });
   setActive(MENU[0].id);
 
   const ms = $('[data-msearch]'), msBtn = $('[data-msearch-btn]'), input = $('[data-search]');
@@ -103,6 +114,7 @@
       cat.classList.toggle('is-hidden', !n); idxLinks.find((a) => a.dataset.cat === cat.id.slice(2)).classList.toggle('is-hidden', !n);
       if (n) any = true;
     });
+    bodyEl.classList.toggle('searching', !!q);
     noneEl.hidden = any;
     if (!any) noneEl.innerHTML = 'Nothing on the menu matches “' + esc(input.value.trim()) + '”.<button type="button" data-clear>Show the full menu</button>';
   }
