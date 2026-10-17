@@ -27,9 +27,19 @@ window.ASHIANA = {
     { day: 'Friday', open: '15:00', close: '03:00' },
     { day: 'Saturday', open: '15:00', close: '03:00' }
   ],
-  // pitanja i odgovori (dio "Good to know" se prikaže tek kad ovdje ima nešto). Samo odgovori koje je potvrdio vlasnik, npr.
-  // { q: 'Is everything halal?', a: 'Yes, all our meat is halal.' }
-  faq: [],
+  // pitanja i odgovori (dio "Good to know"). Samo odgovori iz provjerenih izvora: njihov Instagram (halal, radno vrijeme,
+  // Prince of Persia), Uber Eats (dostava), njihova objava o loyalty kartici, i britanski zakon (nargila samo 18+).
+  // Kad vlasnik potvrdi još nešto (parking, alkohol, rezervacije, terasa), dodaj ovdje.
+  faq: [
+    { q: 'Is the food halal?', a: 'Yes. All our meat is halal.' },
+    { q: 'What are your opening hours?', a: 'We are open every day from 3PM. Sunday to Thursday until 2AM, Friday and Saturday until 3AM.' },
+    { q: 'Where are you?', a: '30-32 Curzon Street, Derby DE1 1LL. Tap Get directions above to open it in Google Maps.' },
+    { q: 'Can I order delivery?', a: 'Yes. You can order from us on Uber Eats.' },
+    { q: 'Is there an age limit for shisha?', a: 'Yes. Shisha is served to over 18s only, and our team may ask for ID.' },
+    { q: 'Do you have vegetarian options?', a: 'Yes, including our Veggie Patty burger, Grilled Halloumi, Houmous and Mixed Olives, plus sides like Skin-on Fries, Garlic Bread and Corn On The Cob.' },
+    { q: 'Do you have a loyalty card?', a: 'Yes, and it is now digital. Sign up at rewards.cafeashiana.com and keep your card on your phone.' },
+    { q: 'What is the newest shisha flavour?', a: 'Prince of Persia, our new summer favourite. Ask our shisha team for the full flavour list.' }
+  ],
   // samo prave rečenice gostiju, sa izvorom
   reviews: [
     { text: 'A great vibe, decor is amazing.', source: 'Tripadvisor', url: 'https://www.tripadvisor.co.uk/Restaurant_Review-g187048-d5504813-Reviews-Cafe_Ashiana-Derby_Derbyshire_England.html' }

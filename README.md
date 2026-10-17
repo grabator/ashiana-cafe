@@ -17,12 +17,13 @@ Provjereno (upisano):
 - [x] Instagram, X, Uber Eats
 - [x] cijene sa Uber Eatsa: Dynamite Shrimp £7.95, Nachos £7.95, Masala Fries £5.45, Grilled Halloumi £4.95
 - [x] jela i pića koja se pominju na javnim stranicama (bez cijena): steak i pomfrit, grilana piletina, chicken burger, Oreo waffle, Desi chai, cappuccino, arapski čaj od mente, mojito bez alkohola; nargila Frozen Apple (gosti je hvale)
+- [x] meni sa Instagram highlighta "Food Menu": For starters, Chickenin' out?, Wingin' it?, Burgers & wraps, Salads, A bit on the side
 - [x] recenzija sa Tripadvisora: "A great vibe, decor is amazing."
 - [x] sa njihovih objava: loyalty kartica je digitalna (rewards.cafeashiana.com), novi okus nargile Prince of Persia ("New summer favourite", "This flavour really hits the spot"), red velvet torta, frozen i obični mocktaili, terasa
 - [x] fotografije u punoj rezoluciji sa njihovih objava: gošća pod cvjetnim plafonom, majstor za nargilu, nargila na terasi, žar, mocktaili, red velvet torta, loyalty i Prince of Persia poster
 
 ### Od vlasnika treba
-- [ ] **puni meni sa cijenama** (sa Instagram highlighta "Food Menu" ili od vlasnika); sad većina stavki ima "ask us" umjesto cijene, a opisi jela su okvirni
+- [ ] **cijene** za meni (jela su prepisana sa Instagram highlighta "Food Menu", cijene ima samo 4 jela sa Uber Eatsa); deserti i pića su sa drugih javnih izvora i treba ih potvrditi
 - [ ] **okusi nargile i cijene** (classic i premium); sad je potvrđen samo Frozen Apple, ostali okusi i opisi okusa su okvirni
 - [ ] **dozvola za fotografije** (nove su sa njihovih objava, a starije sa javnih stranica su manje rezolucije: fasada noću, puna sala, ekipa za šankom); ako imaju fotografije sale i rooftopa u punoj veličini, zamijeniti njih
 - [ ] gdje se puši nargila (terasa, rooftop) i radno vrijeme rooftopa, sezona
@@ -30,7 +31,7 @@ Provjereno (upisano):
 - [ ] email, ako žele da ga prikažemo
 - [ ] dostava: samo Uber Eats ili i Deliveroo / Just Eat
 - [ ] potvrda da ne služe alkohol (na stranici piše "alcohol-free drinks", to kaže jedan javni opis lokala)
-- [ ] odgovori za dio "Good to know" (halal, alkohol, godine za nargilu, dostava, parking)
+- [ ] dodatna pitanja za "Good to know" kad vlasnik potvrdi odgovore (alkohol, parking, rezervacije, terasa i rooftop); sadašnjih 8 odgovora je samo iz provjerenih izvora
 - [ ] pravi domen (stari je cafeashiana.com)
 - [ ] još pravih recenzija sa izvorom, ako žele dio sa recenzijama
 
@@ -67,7 +68,7 @@ v2 je redizajn sa fokusom na dizajn, ne na efekte: tamno, toplo i mirno, kao lok
 - **Visit:**
   - fotografija fasade (ostaje vidljiva pri skrolu) vodi na Google Maps;
   - pored nje adresa, radno vrijeme sa istaknutim današnjim danom i kontakt.
-- **Pitanja (Good to know):** spremno u `data/site.js` (`faq`), prikazuje se tek kad se upišu odgovori koje je potvrdio vlasnik.
+- **Pitanja (Good to know):** 8 pitanja na klik (halal, radno vrijeme, adresa, dostava, nargila 18+, vegetarijanska jela, loyalty kartica, novi okus), u `data/site.js` (`faq`), samo iz provjerenih izvora.
 - **Mobitel:** meni preko cijelog ekrana (veliki serif linkovi, adresa, radno vrijeme, poziv) i tanka donja traka Call · Directions · Menu · Order.
 - **Bez dekorativnih animacija:** nema sijalica, dima, crtanja loga, treptanja neona ni pojavljivanja pri skrolu. Ostali su samo prelazi boje na hover i zatamnjenje pri otvaranju menija i fotografije.
 

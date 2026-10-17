@@ -1,68 +1,93 @@
 /*
- * Meni. Svaka stavka: { name, desc, price, tags, PRIVREMENO }
- *   price: broj u funtama (7.95) ili null kad cijena još nije potvrđena (na stranici piše "ask us")
+ * Meni. Jela su prepisana sa njihovog Instagram highlighta "Food Menu" (nazivi kategorija su njihovi).
+ * Svaka stavka: { name, desc, price, tags, PRIVREMENO }
+ *   price: broj u funtama (7.95) ili null kad cijena još nije potvrđena (tada se cijena ne prikazuje)
  *   tags:  'popular', 'spicy', 'veg'
- *   PRIVREMENO: true = stavka ili opis još nije potvrđen sa pravog menija (Instagram highlight "Food Menu")
- * Potvrđene cijene (Uber Eats): Dynamite Shrimp, Grilled Halloumi, Nachos, Masala Fries.
+ *   PRIVREMENO: true = stavka nije sa njihovog menija nego sa drugih javnih izvora (Uber Eats, objave), treba potvrditi
+ * Potvrđene cijene (Uber Eats): Dynamite Shrimp, Grilled Halloumi, Nachos, Masala Fries. Ostale cijene treba dobiti od vlasnika.
  */
 window.ASHIANA_MENU = [
   {
-    id: 'starters', name: 'Starters', note: 'Made to share, or not.',
+    id: 'starters', name: 'For starters', note: 'Made to share, or not.',
     items: [
-      { name: 'Dynamite Shrimp', desc: 'Crispy shrimp in a creamy chilli sauce.', price: 7.95, tags: ['popular', 'spicy'], descPRIVREMENO: true },
-      { name: 'Nachos', desc: 'Loaded tortilla chips with cheese, salsa and jalapeños.', price: 7.95, tags: [], descPRIVREMENO: true },
-      { name: 'Masala Fries', desc: 'Fries tossed in house masala spice.', price: 5.45, tags: ['spicy', 'veg'], descPRIVREMENO: true },
-      { name: 'Grilled Halloumi', desc: 'Golden grilled halloumi.', price: 4.95, tags: ['veg'], descPRIVREMENO: true }
+      { name: 'Dynamite Shrimp', price: 7.95, tags: ['popular'] },
+      { name: 'Dynamite Chicken', price: null, tags: [] },
+      { name: 'Lamb Chops', price: null, tags: [] },
+      { name: 'Grilled Halloumi', price: 4.95, tags: [] },
+      { name: 'Masala Fries', price: 5.45, tags: [] },
+      { name: 'Houmous', price: null, tags: [] },
+      { name: 'Mixed Olives', price: null, tags: [] },
+      { name: 'Nachos', price: 7.95, tags: [] }
     ]
   },
   {
-    id: 'grill', name: 'Grill & Mains', note: 'All our meat is halal.',
+    id: 'chicken', name: 'Chickenin’ out?', note: 'All our meat is halal.',
     items: [
-      { name: 'Steak & Fries', desc: 'Sliced steak with fries, salad and peppercorn sauce.', price: null, tags: ['popular'], PRIVREMENO: true },
-      { name: 'Grilled Chicken Platter', desc: 'Flame-grilled chicken with fries, salad and dips.', price: null, tags: [], PRIVREMENO: true }
+      { name: 'Quarter-Chicken', price: null, tags: [] },
+      { name: 'Half-Chicken', price: null, tags: [] },
+      { name: 'Whole-Chicken', price: null, tags: [] },
+      { name: 'Chicken Butterfly', price: null, tags: [] },
+      { name: 'Boneless Thighs', price: null, tags: [] }
     ]
   },
   {
-    id: 'burgers', name: 'Burgers', note: 'Served with fries.',
+    id: 'wings', name: 'Wingin’ it?', note: 'For the wing lovers.',
     items: [
-      { name: 'Chicken Burger & Fries', desc: 'Crispy chicken fillet burger with fries.', price: null, tags: ['popular'], PRIVREMENO: true },
-      { name: 'Grilled Chicken Burger', desc: 'Grilled chicken breast burger with fries.', price: null, tags: [], PRIVREMENO: true }
+      { name: 'Wing Flats', price: null, tags: [] }
     ]
   },
   {
-    id: 'desserts', name: 'Desserts & Waffles', note: 'Something sweet to finish.',
+    id: 'burgers', name: 'Burgers & wraps', note: 'Stacked, grilled, wrapped.',
     items: [
-      { name: 'Red Velvet Cake', desc: 'Layers of red velvet sponge and cream cheese frosting.', price: null, tags: ['popular'], PRIVREMENO: true },
-      { name: 'Oreo Waffle', desc: 'Warm waffle with Oreo crumble and chocolate sauce.', price: null, tags: ['popular'], PRIVREMENO: true }
+      { name: 'Smashed Burger', price: null, tags: [] },
+      { name: 'Grilled Peri Fillet', price: null, tags: [] },
+      { name: 'Grilled Peri Thigh', price: null, tags: [] },
+      { name: 'Veggie Patty', price: null, tags: ['veg'] }
     ]
   },
   {
-    id: 'mocktails', name: 'Mocktails', note: 'Alcohol-free, always.',
+    id: 'salads', name: 'Salads', note: 'Fresh and simple.',
     items: [
-      { name: 'Mojito', desc: 'Fresh mint, lime and soda, no alcohol.', price: null, tags: ['popular'], PRIVREMENO: true },
-      { name: 'Arabian Mint Tea with Appletiser', desc: 'Mint tea served with sparkling Appletiser.', price: null, tags: [], PRIVREMENO: true }
+      { name: 'Caesar', price: null, tags: [] },
+      { name: 'Chicken Caesar', price: null, tags: [] }
     ]
   },
   {
-    id: 'shakes', name: 'Shakes', note: 'Thick, cold, generous.',
+    id: 'sides', name: 'A bit on the side', note: 'The perfect partners.',
     items: [
-      { name: 'Milkshakes', desc: 'Ask our team for today’s flavours.', price: null, tags: [], PRIVREMENO: true }
+      { name: 'Skin-on Fries', price: null, tags: [] },
+      { name: 'Peri Fries', price: null, tags: [] },
+      { name: 'Coleslaw', price: null, tags: [] },
+      { name: 'Garlic Bread', price: null, tags: [] },
+      { name: 'Spicy Tomato Rice', price: null, tags: ['spicy'] },
+      { name: 'Creamy Mash', price: null, tags: [] },
+      { name: 'Corn On The Cob', price: null, tags: [] }
     ]
   },
   {
-    id: 'hot', name: 'Hot drinks', note: 'From chai to cappuccino.',
+    id: 'desserts', name: 'Desserts', note: 'Something sweet to finish.',
     items: [
-      { name: 'Desi Chai', desc: 'Spiced milky tea, brewed the traditional way.', price: null, tags: ['popular'], PRIVREMENO: true },
-      { name: 'Cappuccino', desc: 'Espresso with steamed milk and foam.', price: null, tags: [], PRIVREMENO: true },
-      { name: 'Arabian Mint Tea', desc: 'Fresh mint tea.', price: null, tags: [], PRIVREMENO: true }
+      { name: 'Red Velvet Cake', price: null, tags: ['popular'], PRIVREMENO: true },
+      { name: 'Oreo Waffle', price: null, tags: [], PRIVREMENO: true }
+    ]
+  },
+  {
+    id: 'drinks', name: 'Mocktails & hot drinks', note: 'Alcohol-free, always.',
+    items: [
+      { name: 'Frozen Mocktails', price: null, tags: [], PRIVREMENO: true },
+      { name: 'Mojito', price: null, tags: [], PRIVREMENO: true },
+      { name: 'Milkshakes', price: null, tags: [], PRIVREMENO: true },
+      { name: 'Desi Chai', price: null, tags: ['popular'], PRIVREMENO: true },
+      { name: 'Arabian Mint Tea', price: null, tags: [], PRIVREMENO: true },
+      { name: 'Cappuccino', price: null, tags: [], PRIVREMENO: true }
     ]
   },
   {
     id: 'shisha', name: 'Shisha', note: '18+ only. Shisha contains nicotine.',
     items: [
-      { name: 'Frozen Apple', desc: 'Our guests’ favourite: crisp apple with an icy finish.', price: null, tags: ['popular'], PRIVREMENO: true },
-      { name: 'Classic flavours', desc: 'Ask our shisha team for the full flavour list.', price: null, tags: [], PRIVREMENO: true },
-      { name: 'Premium shisha', desc: 'Premium heads and blends.', price: null, tags: [], PRIVREMENO: true }
+      { name: 'Prince of Persia', desc: 'New summer favourite.', price: null, tags: ['popular'] },
+      { name: 'Frozen Apple', desc: 'Our guests’ favourite.', price: null, tags: ['popular'] },
+      { name: 'Full flavour list', desc: 'Ask our shisha team for today’s selection.', price: null, tags: [] }
     ]
   }
 ];
