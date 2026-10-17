@@ -60,10 +60,35 @@
   const idxLinks = $$('a', indexEl);
   const setActive = (id) => idxLinks.forEach((a) => {
     const on = a.dataset.cat === id; a.classList.toggle('on', on);
-    if (on) { a.setAttribute('aria-current', 'true'); if (indexEl.scrollWidth > indexEl.clientWidth) indexEl.scrollTo({ left: a.offsetLeft - indexEl.offsetLeft - 20 }); } else a.removeAttribute('aria-current');
+    if (on) { a.setAttribute('aria-current', 'true'); if (indexEl.scrollWidth > indexEl.clientWidth) indexEl.scrollTo({ left: a.offsetLeft - indexEl.offsetLeft - (indexEl.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' }); } else a.removeAttribute('aria-current');
   });
-  const cio = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) setActive(en.target.id.slice(2)); }), { rootMargin: '-30% 0px -60% 0px' });
-  $$('.cat', bodyEl).forEach((c) => cio.observe(c));
+  // koliko ekrana zauzima ono što se lijepi na vrhu: zaglavlje, a na mobitelu i traka sa kategorijama
+  const topOffset = () => {
+    const hdrH = $('.hdr').getBoundingClientRect().height;
+    const bar = getComputedStyle(indexEl).flexDirection === 'row' ? indexEl.getBoundingClientRect().height : 0;
+    return hdrH + bar + (bar ? 16 : 32);
+  };
+  // aktivna kategorija: zadnja čiji je naslov prošao ispod onoga što se lijepi na vrhu
+  let jumping = 0;
+  const syncActive = () => {
+    if (jumping) return;
+    const cats = $$('.cat:not(.is-hidden)', bodyEl), line = topOffset() + 8;
+    let cur = cats[0];
+    for (const c of cats) if (c.getBoundingClientRect().top <= line) cur = c;
+    if (cur) setActive(cur.id.slice(2));
+  };
+  let sraf = 0;
+  addEventListener('scroll', () => { if (!sraf) sraf = requestAnimationFrame(() => { sraf = 0; syncActive(); }); }, { passive: true });
+  // klik na kategoriju: skrol tačno na njen naslov, odmah označena
+  indexEl.addEventListener('click', (e) => {
+    const a = e.target.closest('a'); if (!a) return;
+    e.preventDefault();
+    const cat = $('#m-' + a.dataset.cat), y = cat.getBoundingClientRect().top + scrollY - topOffset();
+    setActive(a.dataset.cat);
+    clearTimeout(jumping); jumping = setTimeout(() => { jumping = 0; }, 900);
+    scrollTo({ top: Math.max(0, y), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    try { history.replaceState(null, '', '#m-' + a.dataset.cat); } catch {}
+  });
   setActive(MENU[0].id);
 
   const ms = $('[data-msearch]'), msBtn = $('[data-msearch-btn]'), input = $('[data-search]');
