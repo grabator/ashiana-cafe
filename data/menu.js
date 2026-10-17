@@ -66,12 +66,13 @@ window.ASHIANA_MENU = [
   }
 ];
 
-// okusi nargile za dio "Shisha" (Frozen Apple je potvrđen kao omiljeni kod gostiju, ostalo PRIVREMENO)
+// okusi nargile za dio "Shisha", kao vinska karta: naziv i kratka nota okusa.
+// Frozen Apple je potvrđen kao omiljeni kod gostiju; ostali okusi i opisi su PRIVREMENO dok vlasnik ne pošalje listu.
 window.ASHIANA_SHISHA = [
-  { name: 'Frozen Apple', note: 'Guest favourite', fav: true },
-  { name: 'Double Apple', note: 'Classic', PRIVREMENO: true },
-  { name: 'Grape & Mint', note: 'Classic', PRIVREMENO: true },
-  { name: 'Blueberry Mint', note: 'Fresh', PRIVREMENO: true },
-  { name: 'Watermelon', note: 'Sweet', PRIVREMENO: true },
-  { name: 'Lemon & Mint', note: 'Fresh', PRIVREMENO: true }
+  { name: 'Frozen Apple', note: 'Crisp green apple, icy finish', fav: true },
+  { name: 'Double Apple', note: 'Sweet red apple with a hint of aniseed', PRIVREMENO: true },
+  { name: 'Grape & Mint', note: 'Dark grape, cool mint', PRIVREMENO: true },
+  { name: 'Blueberry Mint', note: 'Ripe blueberry, fresh mint', PRIVREMENO: true },
+  { name: 'Watermelon', note: 'Juicy and light', PRIVREMENO: true },
+  { name: 'Lemon & Mint', note: 'Bright citrus, clean finish', PRIVREMENO: true }
 ];

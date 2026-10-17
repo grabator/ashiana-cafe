@@ -27,6 +27,9 @@ window.ASHIANA = {
     { day: 'Friday', open: '15:00', close: '03:00' },
     { day: 'Saturday', open: '15:00', close: '03:00' }
   ],
+  // pitanja i odgovori (dio "Good to know" se prikaže tek kad ovdje ima nešto). Samo odgovori koje je potvrdio vlasnik, npr.
+  // { q: 'Is everything halal?', a: 'Yes, all our meat is halal.' }
+  faq: [],
   // samo prave rečenice gostiju, sa izvorom
   reviews: [
     { text: 'A great vibe, decor is amazing.', source: 'Tripadvisor', url: 'https://www.tripadvisor.co.uk/Restaurant_Review-g187048-d5504813-Reviews-Cafe_Ashiana-Derby_Derbyshire_England.html' }

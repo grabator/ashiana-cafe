@@ -21,12 +21,14 @@ Provjereno (upisano):
 
 ### Od vlasnika treba
 - [ ] **puni meni sa cijenama** (sa Instagram highlighta "Food Menu" ili od vlasnika); sad većina stavki ima "ask us" umjesto cijene, a opisi jela su okvirni
-- [ ] **okusi nargile i cijene** (classic i premium); sad je potvrđen samo Frozen Apple
+- [ ] **okusi nargile i cijene** (classic i premium); sad je potvrđen samo Frozen Apple, ostali okusi i opisi okusa su okvirni
 - [ ] **fotografije** u dobroj rezoluciji (fasada noću, sala sa sijalicama, neon, plafon sa cvjetovima, rooftop, ekipa, hrana) i **dozvola** da se koriste; sadašnje su isječci sa javnih stranica (Tripadvisor, Facebook, Instagram), samo za demo
 - [ ] gdje se puši nargila (terasa, rooftop) i radno vrijeme rooftopa, sezona
 - [ ] tačan link Facebook stranice (sad vodi na pretragu "Cafe Ashiana Derby", u `data/site.js`)
 - [ ] email, ako žele da ga prikažemo
 - [ ] dostava: samo Uber Eats ili i Deliveroo / Just Eat
+- [ ] potvrda da ne služe alkohol (na stranici piše "alcohol-free drinks", to kaže jedan javni opis lokala)
+- [ ] odgovori za dio "Good to know" (halal, alkohol, godine za nargilu, dostava, parking)
 - [ ] pravi domen (stari je cafeashiana.com)
 - [ ] još pravih recenzija sa izvorom, ako žele dio sa recenzijama
 
@@ -37,23 +39,33 @@ Provjereno (upisano):
 - [ ] nova `assets/og.jpg` ako stignu nove fotografije
 - [ ] dozvola za fotografije
 
-## Šta ima
+## Šta ima (v2)
 
-- **Prvi ekran:** fotografija sale, Edison sijalice koje se njišu i trepere, dim koji se diže (canvas), njihov logo koji se nacrta (zlatni krug, pa "café"), oznaka Halal, dugmad za meni, put i poziv.
-- **Status "Open now · until 2AM"** po londonskom vremenu. Radi i iza ponoći: u subotu u 01:00 je otvoreno do 03:00, jer još traje petak. Zadnjih 30 minuta piše "Closing soon".
-- **Meni:**
-  - tri kartice sa fotografijama omiljenih jela;
-  - kategorije kao dugmad (strelice na tastaturi rade) i pretraga sa porukom kad nema rezultata;
-  - cijene sa tačkicama kao na pravom meniju i oznake Popular, Spicy, Veg;
-  - dugme za Uber Eats.
-- **Shisha:** tamnoplavi somot, plavi neon, kartice okusa (Frozen Apple istaknut), oznaka 18+ i upozorenje o nikotinu.
-- **Lounge:**
-  - neon "There's no place like home" koji zatreperi kad se dođe do njega;
-  - galerija sa uvećanjem (strelice, prevlačenje prstom, Esc; fokus ostaje unutra);
-  - prava rečenica gosta sa linkom na Tripadvisor.
-- **Ekipa:** osoblje u prslucima i kačketima.
-- **Find us:** mapa sa pinom (vodi na Google Maps), adresa, telefon, radno vrijeme po danima sa istaknutim današnjim danom, društvene mreže.
-- **Mobitel:** meni preko cijelog ekrana i donja traka Call · Directions · Menu · Uber Eats.
+v2 je redizajn sa fokusom na dizajn, ne na efekte: tamno, toplo i mirno, kao lokal navečer.
+
+- **Tipografija:**
+  - naslovi u serifu Cormorant Garamond, kurziv za isticanje;
+  - tekst u Manropeu;
+  - Quicksand samo za logo i natpis "café ashiana";
+  - neon rukopis (Sacramento) samo jednom, u dijelu Shisha.
+- **Zlatna samo** za logo, glavno dugme, cijene i tanke linije. Uz crnu ide topla tamna (`#14110d`) i plavi somot u dijelu Shisha.
+- **Prvi ekran:** naslov lijevo, fotografija sale desno (nikad šira od svoje rezolucije), traka sa tri podatka: današnji status (živi, London), adresa, halal.
+- **Uvod:** tekst o lokalu, fotografija plafona sa cvjetovima i veliki citat gosta sa Tripadvisora.
+- **Meni kao u restoranu:**
+  - sve kategorije odjednom, sa indeksom sa strane (na mobitelu traka koja se lijepi);
+  - pretraga na ikonicu;
+  - oznake ★ Popular, V Vegetarian, S Spicy.
+  - Stavke bez potvrđene cijene nemaju cijenu; na vrhu piše "Prices on request for items without a price".
+- **Shisha:** lista okusa kao vinska karta (Frozen Apple istaknut), 18+ i upozorenje o nikotinu, statičan neon.
+- **The lounge:** naslov lijevo, mreža fotografija desno (3:2 i 1:1, na mobitelu sve 1:1), uvećanje na klik (strelice, prevlačenje, Esc).
+- **The crew** i **Visit:**
+  - fotografija fasade (ostaje vidljiva pri skrolu) vodi na Google Maps;
+  - pored nje adresa, radno vrijeme sa istaknutim današnjim danom i kontakt.
+- **Pitanja (Good to know):** spremno u `data/site.js` (`faq`), prikazuje se tek kad se upišu odgovori koje je potvrdio vlasnik.
+- **Mobitel:** meni preko cijelog ekrana (veliki serif linkovi, adresa, radno vrijeme, poziv) i tanka donja traka Call · Directions · Menu · Order.
+- **Bez dekorativnih animacija:** nema sijalica, dima, crtanja loga, treptanja neona ni pojavljivanja pri skrolu. Ostali su samo prelazi boje na hover i zatamnjenje pri otvaranju menija i fotografije.
+
+Mapa: OpenStreetMap slika nije mogla da se iscrta u ovom okruženju, pa je umjesto mape fotografija fasade sa dugmetom za Google Maps (prompt to dozvoljava). Ako se kasnije doda statična mapa, ide u `assets/img/` sa natpisom "© OpenStreetMap contributors".
 
 ## Pokretanje
 
@@ -71,7 +83,7 @@ Zatim otvori http://localhost:8080. Za provjeru statusa u određeno vrijeme (lon
 { name: 'Dynamite Shrimp', desc: 'Crispy shrimp in a creamy chilli sauce.', price: 7.95, tags: ['popular', 'spicy'] }
 ```
 
-`price: null` prikazuje "ask us". Oznake (`tags`) su `popular`, `spicy` i `veg`. Okusi nargile su u istom fajlu, u `ASHIANA_SHISHA`.
+`price: null` znači da se cijena ne prikazuje. Oznake (`tags`) su `popular`, `spicy` i `veg`. Okusi nargile su u istom fajlu, u `ASHIANA_SHISHA`.
 
 **Radno vrijeme, telefon, adresa, linkovi i recenzije** su u `data/site.js`. Ako se radno vrijeme promijeni, promijeni ga i u JSON-LD dijelu u `index.html` (zbog Googlea) i u podnožju.
 
@@ -81,12 +93,9 @@ Zatim otvori http://localhost:8080. Za provjeru statusa u određeno vrijeme (lon
 
 - `index.html`: sadržaj, SVG logo (`#logo`), ikonice, JSON-LD `Restaurant` sa radnim vremenom preko ponoći, `acceptsReservations: false`.
 - `css/style.css`:
-  - boje sa loga i fotografija: crna `#0a0a0a`, zlatna `#c8a769`, krem `#f3ece0`, somot `#18224a`, neon `#5fb4ff`, sijalice `#ffb45a`;
-  - fontovi: Quicksand (naslovi, najbliži njihovom logu), Manrope (tekst), Sacramento (neon), svi lokalno u `assets/fonts/` (SIL OFL, licence uz fontove).
-- `js/app.js`: status, meni, pretraga, okusi, galerija, dim, zaglavlje.
-  - Dim se crta u pola rezolucije i staje kad nije na ekranu ili tab nije aktivan; na slabom uređaju se sam ugasi.
-  - Sijalice se samo rotiraju (bez ponovnog crtanja).
-  - "Smanji pokrete" gasi sve animacije.
+  - dizajn tokeni u `:root` (boje, tipografska skala, razmaci 4 do 160, radijus 12px), mreža od 12 kolona do 1320px;
+  - fontovi lokalno u `assets/fonts/` (SIL OFL, licence uz fontove): Cormorant Garamond, Manrope, Quicksand, Sacramento.
+- `js/app.js`: status, meni (indeks, pretraga), okusi, recenzija, pitanja, zaglavlje, mobilni meni, uvećanje fotografija.
 - `_headers`: CSP bez `unsafe-inline` za skripte, sigurnosna zaglavlja; keš: fontovi godinu dana, slike sedmicu, css, js i data se uvijek provjere.
 
 ## Provjera
@@ -96,5 +105,9 @@ Zatim otvori http://localhost:8080. Za provjeru statusa u određeno vrijeme (lon
   - subota 01:00 i 02:30 otvoreno (petak do 03:00), 03:01 zatvoreno;
   - nedjelja 01:59 i 02:00 otvoreno (subota do 03:00);
   - ponedjeljak 01:59 "Closing soon", 02:00 zatvoreno.
-- 390x844, 768x1024, 1440x900 i 1920x1080: bez horizontalnog skrola, bez grešaka u konzoli, axe bez ozbiljnih problema. Kategorije, pretraga, galerija, mobilni meni i sva dugmad rade.
-- Lighthouse (mobitel, lokalno): Performance 95, Accessibility 100, Best Practices 100, SEO 69. SEO je niži samo zbog namjernog `noindex` za demo; bez njega je 100.
+- Dizajnerska provjera sa screenshotovima na 360, 390, 768, 1024, 1440 i 1920:
+  - nigdje nema horizontalnog skrola ni grešaka u konzoli;
+  - fotografije nisu šire od svoje rezolucije (na 1920 je slika na prvom ekranu oko 5% uvećana po visini);
+  - skokovi na dijelove (Menu, Shisha, The lounge, Visit) pogađaju tačno mjesto.
+- axe bez ozbiljnih problema. Indeks menija, pretraga, uvećanje fotografija, mobilni meni i sva dugmad rade.
+- Lighthouse (mobitel, lokalno): Performance 97 do 99, Accessibility 100, Best Practices 100, SEO 69 samo zbog namjernog `noindex` za demo (bez njega 100). CLS 0, blokiranje 0 do 50 ms, LCP oko 2.3 s.
