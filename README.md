@@ -63,7 +63,8 @@ v2 je redizajn sa fokusom na dizajn, ne na efekte: tamno, toplo i mirno, kao lok
   - Stavke bez potvrđene cijene nemaju cijenu; na vrhu piše "Prices on request for items without a price".
 - **Shisha:** traka sa žarom, poster Prince of Persia, lista okusa kao vinska karta (Prince of Persia i Frozen Apple istaknuti), 18+ i upozorenje o nikotinu, statičan neon.
 - **Rewards:** njihova digitalna loyalty kartica sa dugmetom na rewards.cafeashiana.com.
-- **The lounge:** naslov lijevo, mreža fotografija desno (3:2 i 1:1, na mobitelu sve 1:1), uvećanje na klik (strelice, prevlačenje, Esc).
+- **Potpis brenda:** njihov neon "There's no place like home" kao poseban dio preko cijele širine, između Shishe i Lounga (statičan sjaj, samo tekst, bez slike).
+- **The lounge:** naslov lijevo, galerija desno: velika fotografija sale sa krošnjom i fasada noću u prvom redu (iste visine), puna sala, šank i ekipa ispod. Svaka fotografija je prikazana najviše u svojoj stvarnoj veličini, nijedna se ne ponavlja na stranici. Uvećanje na klik.
 - **The crew:** velika fotografija majstora za nargilu u kačketu i prsluku.
 - **Visit:**
   - fotografija fasade (ostaje vidljiva pri skrolu) vodi na Google Maps;
@@ -117,4 +118,5 @@ Zatim otvori http://localhost:8080. Za provjeru statusa u određeno vrijeme (lon
   - fotografije nisu šire od svoje rezolucije (na 1920 je slika na prvom ekranu oko 5% uvećana po visini);
   - skokovi na dijelove (Menu, Shisha, The lounge, Visit) pogađaju tačno mjesto.
 - axe bez ozbiljnih problema. Indeks menija, pretraga, uvećanje fotografija, mobilni meni i sva dugmad rade.
+- Lighthouse desktop: Performance 100, Accessibility 100, Best Practices 100.
 - Lighthouse (mobitel, lokalno): Performance 97 do 99, Accessibility 100, Best Practices 100, SEO 69 samo zbog namjernog `noindex` za demo (bez njega 100). CLS 0, blokiranje 0 do 50 ms, LCP oko 2.3 s.
